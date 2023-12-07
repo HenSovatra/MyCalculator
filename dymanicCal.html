@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="CalStyle.css">
+  <title>Dynamic Calculator</title>
+</head>
+<body>
+  <center>
+    <div style="display: flex; justify-content: center;" name="boss">
+        <form name="Calculator" class="form1">
+            <p id="text">Enable Darkmode</p>
+            <label class="toggle">
+                <input class="toggle-checkbox" type="checkbox" id="checkbox">
+                <div class="toggle-switch"></div>
+              </label>
+              <br><br>
+            <input type="text" name="display2" id="userInput2" placeholder="">
+            <input type="text" name="display" readonly id="userInput" placeholder="" >
+            <div id="result"></div>
+            <br>
+            <input type="button" value="7" class="oper" onclick="InputResult('7');" >
+            <input type="button" value="8" class="oper" onclick="InputResult('8');" >
+            <input type="button" value="9" class="oper" onclick="InputResult('9');" >
+            <input type="button" value="DE" class="oper" OnClick="Calculator.display.value = Calculator.display.value.substring(0, Calculator.display.value.length - 1); Calculator.display2.value = Calculator.display2.value.substring(0, Calculator.display2.value.length - 1); adjustFontSize();" >
+            <br>
+            <input type="button" value="4"  class="oper" onclick="InputResult('4');" >
+            <input type="button" value="5"  class="oper" onclick="InputResult('5');" >
+            <input type="button" value="6"  class="oper" onclick="InputResult('6');" >
+            <input type="button" value="*" onclick="controlOper('*');" id="oper" class="operbut">
+            <br>
+            <input type="button" value="1"  class="oper" onclick="InputResult('1');" >
+            <input type="button" value="2"  class="oper" onclick="InputResult('2');" >
+            <input type="button" value="3"  class="oper" onclick="InputResult('3');" >
+            <input type="button" value="-" class="operbut" onclick="controlOper('-');" id="oper">
+            <br>
+            <input type="button" value="0"  class="oper" onclick="InputResult('0');"  >
+            <input type="button" value="00"  class="oper" onclick="InputResult('00');">
+            <input type="button" value="="  class="oper" onclick="answer(); adjustFontSize(); test()">
+            <input type="button" value="+" class="operbut" onclick="controlOper('+');" id="oper">
+            <br>
+            <input type="button" value="Clear" id="clear" onclick="clearResult(); FclearResult(); adjustFontSize();" class="operbut">
+            <input type="button" value="."  class="oper" onclick="InputResult('.'); " name="dot">
+            <input type="button" value="÷" class="operbut"  onclick="controlOper('/'); FakeResult('÷')" id="oper">
+            <br>  
+            <button onclick="clearHistory()" id="clearHistory">Clear History</button>
+            
+           <br><br><br><br><br>
+            
+           
+            
+        </form>
+        <form class="form2" name="history" style="width: 1px;" id="history">
+            <h1 id="title">History</h1>
+            <ul id="historyList"></ul>
+        </form>
+    </div>
+    
+  </center>
+
+  <script src="CalScript.js">
+
+  </script>
+</body>
+</html>
