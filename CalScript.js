@@ -103,8 +103,7 @@ if (value ==='.'){
     dotAdded = true;
 }
 else{
-
-   
+ 
     if (displayCount>21){
         result.value+='';
         Fresult.value+='';
@@ -118,35 +117,6 @@ else{
    
       
 }
-// if (value === '.') {
-//     if (dotAdded) {
-//         return;
-//     }
-//     var lastChar = result.value.slice(-1);
-  
-//     if (result.value === '' || '+-*/'.includes(lastChar)) {
-//         result.value += '0' + value;
-//         dotAdded=true;
-//         console.log(dotAdded)
-//     }
-//      else if('.'.includes(lastChar)){
-//         dotAdded=true;
-//      }
-//     else{
-//         result.value += value;
-//         dotAdded = true; 
-//         console.log(1)
-//     }
-//     } 
-//     else {
-//         result.value += value;
-//         if ('+-*/'.includes(value)) {
-//             dotAdded = false;
-        
-//         }
-//         }
-
-
 
 adjustFontSize();
 updateBackground();
@@ -168,7 +138,7 @@ function controlOper(value){
                 filloper='-';
             }
             if(value ==='*'){
-                filloper='*';
+                filloper='x';
             }
             if(value ==='/'){
                 filloper='÷';
@@ -178,9 +148,22 @@ function controlOper(value){
         }
 
         var lastChar2 = Cresult.value.slice(-1);
-        if('+-*/'.includes(lastChar2)){
-            Cresult.value +='';
-            Fresult.value+='';
+        if('+-*/÷'.includes(lastChar2)){
+
+            if(value ==='+'){
+                filloper='+';
+            }
+            if(value ==='-'){
+                filloper='-';
+            }
+            if(value ==='*'){
+                filloper='x';
+            }
+            if(value ==='/'){
+                filloper='÷';
+            }
+            Cresult.value = Cresult.value.substring(0, Cresult.value.length - 1)+value
+            Fresult.value = Cresult.value.substring(0, Cresult.value.length - 1)+filloper
         }
         else if ('.'.includes(lastChar2)){
 
@@ -191,20 +174,25 @@ function controlOper(value){
                 filloper='-';
             }
             if(value ==='*'){
-                filloper='*';
+                filloper='x';
             }
             if(value ==='/'){
                 filloper='÷';
             }
 
             
-            Cresult.value = Cresult.value.substring(0, Cresult.value.length - 1)+filloper
+            Cresult.value = Cresult.value.substring(0, Cresult.value.length - 1)+value
             Fresult.value = Cresult.value.substring(0, Cresult.value.length - 1)+filloper
         }
         else{
             
             if(value==='/'){
                 Fresult.value+='÷';
+                Cresult.value+=value;
+            }
+            else if(value==='*')
+            {
+                Fresult.value+='x';
                 Cresult.value+=value;
             }
             else{
@@ -215,37 +203,6 @@ function controlOper(value){
     }
     
 }
-// function controlOper(operator){
-//     var Cresult = document.Calculator.display;
-//     if(operator ==='+' || operator ==='-' || operator ==='*' || operator ==='/'){
-//         if(operAdded){
-//             return;
-//         }
-//         var lastChar2 = Cresult.value.slice(-1);
-//         if(Cresult.value!=''&&!'+-*/'.includes(lastChar2)){
-//             Cresult.value+=operator;
-//         }
-//         else if('.'.includes(lastChar2)  ){
-//             Cresult.value += '0' + operator; 
-         
-//         }
-//         else if(!'+-*/'.includes(lastChar2)){
-//             Cresult.value+=operator+'0'; 
-//         }
-//         else if(Cresult.value == ''){
-           
-//         }
-       
-//         else{
-//             Cresult.value+= value;
-//             operAdded=false;
-//             dotAdded=false
-        
-//         }
-//         }
-// }
-
-
 
 function clearResult() {
     var result = document.Calculator.display;
