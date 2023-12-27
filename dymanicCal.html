@@ -14,14 +14,15 @@
                 <div class="toggle-switch"></div>
               </label>
               <br><br>
-            <input type="text" name="display2" id="userInput2" placeholder="">
-            <input type="text" name="display" readonly id="userInput" placeholder="" >
+              <input type="text" name="display3" readonly id="userInput3" placeholder="0" >
+            <input type="text" name="display2" readonly id="userInput2" placeholder="0">
+            <input type="text" name="display" readonly id="userInput" placeholder="0" >
             <div id="result"></div>
             <br>
             <input type="button" value="7" class="oper" onclick="InputResult('7');" >
             <input type="button" value="8" class="oper" onclick="InputResult('8');" >
             <input type="button" value="9" class="oper" onclick="InputResult('9');" >
-            <input type="button" value="DE" class="oper" OnClick="Calculator.display.value = Calculator.display.value.substring(0, Calculator.display.value.length - 1); Calculator.display2.value = Calculator.display2.value.substring(0, Calculator.display2.value.length - 1); adjustFontSize();" >
+            <input type="button" value="DE" class="oper" onclick="Backspace()" >
             <br>
             <input type="button" value="4"  class="oper" onclick="InputResult('4');" >
             <input type="button" value="5"  class="oper" onclick="InputResult('5');" >
@@ -33,18 +34,21 @@
             <input type="button" value="3"  class="oper" onclick="InputResult('3');" >
             <input type="button" value="-" class="operbut" onclick="controlOper('-');" id="oper">
             <br>
-            <input type="button" value="0"  class="oper" onclick="InputResult('0');"  >
-            <input type="button" value="00"  class="oper" onclick="InputResult('00');">
-            <input type="button" value="="  class="oper" onclick="answer(); adjustFontSize(); test()">
+            <input type="button" value="0"  class="oper" onclick="zero('0');"  >
+            <input type="button" value="00"  class="oper" onclick="zero('00');">
+            <input type="button" value="="  class="oper" onclick="adjustFontSize(); answer(); ">
             <input type="button" value="+" class="operbut" onclick="controlOper('+');" id="oper">
             <br>
             <input type="button" value="Clear" id="clear" onclick="clearResult(); FclearResult(); adjustFontSize();" class="operbut">
             <input type="button" value="."  class="oper" onclick="InputResult('.'); " name="dot">
             <input type="button" value="÷" class="operbut"  onclick="controlOper('/');" id="oper">
+           
+            <br>
+            <input type="button" value="Show History"   onclick="test()" id="clear" style="font-size: 1.2vw;">
+            <input type="button" value="Hide History"   onclick="hideHistory()" id="clear" style="font-size: 1.2vw;">
             <br>  
-            <button onclick="clearHistory()" id="clearHistory">Clear History</button>
-            
-           <br><br><br><br><br>
+            <button onclick="clearHistory()" id="clearHistory">Clear History</button> 
+            <br><br>
             
            
             
